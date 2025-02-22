@@ -13,7 +13,7 @@ const PROGRESS_BAR_PERCENTAGE = 0.6;
 export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         {/* Header Component */}
         <HomeHeader />
 

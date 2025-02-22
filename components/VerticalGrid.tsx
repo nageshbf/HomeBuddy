@@ -10,7 +10,7 @@ const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
     const { _GridData, _SectionName } = props;
 
     const renderItem = ({ item, index }: { item: MainCarouselData, index: number }) => (
-        <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10, marginTop: _SectionName ? 0 : 10 }}>
+        <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10, marginTop: _SectionName ? 0 : 14 }}>
 
             {/* Main Banner */}
             <View style={{
@@ -18,7 +18,7 @@ const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
                 justifyContent: 'center',
             }}>
                 <Image source={item.tag}
-                    style={styles.tagStyle} />
+                    style={{...styles.tagStyle, width: _SectionName ? 95 : 129}} />
                 <Image source={item.imageUrl}
                     style={styles.image} />
             </View>
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     tagStyle: {
-        width: 95,
         height: 26,
         position: 'absolute',
         zIndex: 1,
