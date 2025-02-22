@@ -1,5 +1,5 @@
-import { colors, textColors } from '@/utilities/colors';
-import { fontFamily } from '@/utilities/fontsUtility';
+import { colors, textColors } from '@/utilities/utility';
+import { fontFamily } from '@/utilities/utility';
 import { Text, View, StyleSheet } from 'react-native';
 
 export default function SettingScreen() {

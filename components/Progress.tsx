@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Bar } from 'react-native-progress';
-import { fontFamily } from '@/utilities/fontsUtility';
+import { fontFamily } from '@/utilities/utility';
 
 const width = Dimensions.get('window').width - 40;
 
-export default function Progress() {
-  const [progress, setProgress] = useState(0.6);
+export default function Progress({ percentage }: { percentage: number }) {
+  const [progress, setProgress] = useState(percentage);
 
   return (
     <View style={styles.container}>
@@ -36,7 +36,7 @@ export default function Progress() {
         />
       </View>
 
-      <Text style={styles.textStyles}>Do Today 30%</Text>
+      <Text style={styles.textStyles}>{`Do Today ${percentage * 100}%`}</Text>
 
     </View>
   );

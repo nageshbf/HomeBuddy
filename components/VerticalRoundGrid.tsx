@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { classMemories, ClassMemoriesData } from '../data/StaticData';
-import CustomCarousel from './CustomCarousel';
-import { fontFamily } from '@/utilities/fontsUtility';
-import { shadowStyle } from '@/utilities/globalStyle';
+import { ClassMemoriesData } from '../data/StaticData';
+import CustomCarousel from './Carousel';
+import { fontFamily } from '@/utilities/utility';
+import { shadowStyle } from '@/utilities/utility';
 
-const ClassMemories = () => {
+type Grid = ClassMemoriesData[]
+const ClassMemories = (props: { _GridData: Grid, _SectionName?: string }) => {
+    const { _GridData, _SectionName } = props;
+
     const renderItem = ({ item, index }: { item: ClassMemoriesData, index: number }) => (
         <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10 }}>
 
@@ -31,7 +34,7 @@ const ClassMemories = () => {
         <View>
             <Text style={styles.headerStyle}>Class Memories</Text>
             <CustomCarousel
-                _data={classMemories}
+                _data={_GridData}
                 _renderItem={renderItem} />
         </View>
     );

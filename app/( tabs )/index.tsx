@@ -1,14 +1,14 @@
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
-import { colors, textColors } from '../../utilities/colors';
+import { StyleSheet, ScrollView } from 'react-native';
+import { colors } from '@/utilities/utility';
 import HomeHeader from '@/components/HomeHeader';
-import MainCarousel from '../../components/MainCrousel';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import ClassMemories from '@/components/ClassMemories';
-import Explore from '@/components/Explore';
+import VerticalRoundGrid from '@/components/VerticalRoundGrid';
+import VerticalRectGrid from '@/components/VerticalRectGrid';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { fontFamily } from '@/utilities/fontsUtility';
-import Content from '@/components/Content';
 import Progress from '@/components/Progress';
+import VerticalGrid from '@/components/VerticalGrid';
+import { classMemories, contentData, data, exploreData } from '@/data/StaticData';
+
+const PROGRESS_BAR_PERCENTAGE = 0.6;
 
 export default function Index() {
   return (
@@ -18,18 +18,31 @@ export default function Index() {
         <HomeHeader />
 
         {/* Main Carousel */}
-        <MainCarousel />
+        <VerticalGrid
+          _GridData={data}
+        />
 
-        <Progress />
+        {/* Progress Bar */}
+        <Progress percentage={PROGRESS_BAR_PERCENTAGE} />
 
         {/* Class Memories */}
-        <ClassMemories />
+        <VerticalRoundGrid
+          _GridData={classMemories}
+          _SectionName='Class Memories'
+        />
 
         {/* Explore */}
-        <Explore />
+        <VerticalRectGrid
+          _GridData={exploreData}
+          _SectionName='Explore'
+        />
 
         {/* Content */}
-        <Content />
+        <VerticalGrid
+          _GridData={contentData}
+          _SectionName='Content'
+        />
+
       </ScrollView>
     </SafeAreaView>
   );

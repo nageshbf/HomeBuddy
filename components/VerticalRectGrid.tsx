@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { exploreData, ExploreData } from '../data/StaticData';
-import CustomCarousel from './CustomCarousel';
-import { fontFamily } from '@/utilities/fontsUtility';
-import { shadowStyle } from '@/utilities/globalStyle';
+import { ExploreData } from '../data/StaticData';
+import CustomCarousel from './Carousel';
+import { fontFamily } from '@/utilities/utility';
+import { shadowStyle } from '@/utilities/utility';
 
-const Explore = () => {
+type Grid = ExploreData[]
+const VerticalRectGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
+    const { _GridData, _SectionName } = props;
+
     const renderItem = ({ item, index }: { item: ExploreData, index: number }) => (
         <View style={{...styles.container, marginLeft: index === 0 ? 16 : 10}}>
 
@@ -17,9 +20,9 @@ const Explore = () => {
     );
     return (
         <View>
-            <Text style={styles.headerStyle}>Explore</Text>
+            {_SectionName ? <Text style={styles.headerStyle}>{_SectionName}</Text> : null} 
             <CustomCarousel
-                _data={exploreData}
+                _data={_GridData}
                 _renderItem={renderItem} />
         </View>
     );
@@ -57,4 +60,4 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.PlaypenSansMedium,
     }
 });
-export default Explore;
+export default VerticalRectGrid;

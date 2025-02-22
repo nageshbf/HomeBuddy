@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { data, MainCarouselData } from '../data/StaticData';
-import CustomCarousel from './CustomCarousel';
-import { fontFamily } from '@/utilities/fontsUtility';
-import { shadowStyle } from '@/utilities/globalStyle';
+import { MainCarouselData } from '../data/StaticData';
+import CustomCarousel from './Carousel';
+import { fontFamily } from '@/utilities/utility';
+import { shadowStyle } from '@/utilities/utility';
 
-const MainCarousel = () => {
+type Grid = MainCarouselData[]
+const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
+    const { _GridData, _SectionName } = props;
+
     const renderItem = ({ item, index }: { item: MainCarouselData, index: number }) => (
-        <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10 }}>
+        <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10, marginTop: _SectionName ? 0 : 10 }}>
 
             {/* Main Banner */}
             <View style={{
@@ -20,7 +23,7 @@ const MainCarousel = () => {
                     style={styles.image} />
             </View>
 
-            {/* Title and Play Button */}
+            {/* Title and Button Container*/}
             <View style={styles.rowContainer}>
                 <Text style={styles.titleStyle}>{item.title}</Text>
 
@@ -35,13 +38,24 @@ const MainCarousel = () => {
     );
 
     return (
-        <CustomCarousel
-            _data={data}
-            _renderItem={renderItem} />
+        <View>
+            {_SectionName ? <Text style={styles.headerStyle}>{_SectionName}</Text> : null}
+            <CustomCarousel
+                _data={_GridData}
+                _renderItem={(renderItem)} />
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    headerStyle: {
+        fontSize: 16,
+        color: 'black',
+        fontFamily: fontFamily.PlaypenSansBold,
+        marginLeft: 17,
+        marginVertical: 8,
+        // marginTop: 10,
+    },
     container: {
         width: 320,
         height: 192,
@@ -49,9 +63,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 24,
         marginBottom: 6,
-        marginTop: 10,
         ...shadowStyle
-
     },
     image: {
         width: 303,
@@ -59,7 +71,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     tagStyle: {
-        width: 129,
+        width: 95,
         height: 26,
         position: 'absolute',
         zIndex: 1,
@@ -93,4 +105,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default MainCarousel;
+export default VerticalGrid;

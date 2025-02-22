@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { fontFamily } from '@/utilities/fontsUtility';
+import { fontFamily } from '@/utilities/utility';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
