@@ -1,0 +1,120 @@
+{
+  "expo": {
+    "name": "HomeBuddy",
+    "slug": "HomeBuddy",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "gestureHandlerEnabled": true
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+     
+      [
+        "expo-font",
+        {
+          "web": {
+            "fonts": [
+              {
+                "family": "PlaypenSans-Bold",
+                "files": ["./assets/fonts/PlaypenSans-Bold.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Light",
+                "files": ["./assets/fonts/PlaypenSans-Light.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Medium",
+                "files": ["./assets/fonts/PlaypenSans-Medium.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Regular",
+                "files": ["./assets/fonts/PlaypenSans-Regular.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Thin",
+                "files": ["./assets/fonts/PlaypenSans-Thin.ttf"]
+              }
+            ]
+          },
+          "ios": {
+            "fonts": [
+              {
+                "family": "PlaypenSans-Bold",
+                "files": ["./assets/fonts/PlaypenSans-Bold.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Light",
+                "files": ["./assets/fonts/PlaypenSans-Light.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Medium",
+                "files": ["./assets/fonts/PlaypenSans-Medium.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Regular",
+                "files": ["./assets/fonts/PlaypenSans-Regular.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Thin",
+                "files": ["./assets/fonts/PlaypenSans-Thin.ttf"]
+              }
+            ]
+          },
+          "android": {
+            "fonts": [
+              {
+                "family": "PlaypenSans-Bold",
+                "files": ["./assets/fonts/PlaypenSans-Bold.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Light",
+                "files": ["./assets/fonts/PlaypenSans-Light.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Medium",
+                "files": ["./assets/fonts/PlaypenSans-Medium.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Regular",
+                "files": ["./assets/fonts/PlaypenSans-Regular.ttf"]
+              },
+              {
+                "family": "PlaypenSans-Thin",
+                "files": ["./assets/fonts/PlaypenSans-Thin.ttf"]
+              }
+            ]
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
