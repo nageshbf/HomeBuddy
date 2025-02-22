@@ -14,6 +14,7 @@ const CustomCarousel = (props: any) => {
             showsHorizontalScrollIndicator={true}
           //  style={styles.carousel}
             contentContainerStyle={{ flexGrow: 1 }}
+            ListFooterComponent={<View style={{ width: 20 }} />}
         />
     );
 };

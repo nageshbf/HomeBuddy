@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { exploreData, ExploreData } from '../data/StaticData';
 import CustomCarousel from './CustomCarousel';
 import { fontFamily } from '@/utilities/fontsUtility';
+import { shadowStyle } from '@/utilities/globalStyle';
 
 const Explore = () => {
     const renderItem = ({ item, index }: { item: ExploreData, index: number }) => (
@@ -40,14 +41,7 @@ const styles = StyleSheet.create({
         marginBottom: 6,
         paddingHorizontal: 8,
         paddingTop: 8,
-        // alignItems: 'center',
-        // justifyContent: 'center',
-
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 2,
-        shadowColor: 'rgba(0,0,0,0.2)',
+       ...shadowStyle
 
     },
     image: {

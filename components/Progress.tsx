@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Bar } from 'react-native-progress';
 import { fontFamily } from '@/utilities/fontsUtility';
 
-const width = Dimensions.get('window').width - 38;
+const width = Dimensions.get('window').width - 40;
 
 export default function Progress() {
   const [progress, setProgress] = useState(0.6);

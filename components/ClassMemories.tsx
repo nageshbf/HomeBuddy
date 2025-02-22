@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { classMemories, ClassMemoriesData } from '../data/StaticData';
 import CustomCarousel from './CustomCarousel';
 import { fontFamily } from '@/utilities/fontsUtility';
+import { shadowStyle } from '@/utilities/globalStyle';
 
 const ClassMemories = () => {
     const renderItem = ({ item, index }: { item: ClassMemoriesData, index: number }) => (
@@ -20,7 +21,7 @@ const ClassMemories = () => {
                         onPress={() => item.buttonAction()}>
                         <Text style={styles.buttonLabel}>{item.buttonLabel}</Text>
                         <Image source={require('../assets/images/HomeBuddy/right-arrow.png')}
-                            style={{ width: 10, height: 10, marginLeft: 5 }}/>
+                            style={{ width: 10, height: 10, marginLeft: 5 }} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -52,12 +53,7 @@ const styles = StyleSheet.create({
         marginBottom: 6,
         alignItems: 'center',
         justifyContent: 'center',
-
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 2,
-        shadowColor: 'rgba(0,0,0,0.2)',
+        ...shadowStyle
 
     },
     image: {

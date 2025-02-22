@@ -6,10 +6,4 @@ export const fontFamily = {
   PlaypenSansThin: 'PlaypenSansThin',
 };
 
-const fontSize = {
-  small: '12px',
-  medium: '16px',   // Default
-  large: '20px',
-  xLarge: '24px',
-}
 
