@@ -103,7 +103,7 @@ export default function TabLayout() {
                 />
                 {
                   props.accessibilityState?.selected ?
-                    CustomButtonLabel('About') : null
+                    CustomButtonLabel('Activity') : null
                 }
               </CustomTabButton>
             )
