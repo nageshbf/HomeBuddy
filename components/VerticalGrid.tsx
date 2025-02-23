@@ -6,11 +6,16 @@ import { fontFamily } from '@/utilities/utility';
 import { shadowStyle } from '@/utilities/utility';
 
 type Grid = MainCarouselData[]
-const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
-    const { _GridData, _SectionName } = props;
+const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string, _TestID: string, _OnPress: (item: MainCarouselData) => void }) => {
+    const { _GridData, _SectionName, _TestID, _OnPress } = props;
 
     const renderItem = ({ item, index }: { item: MainCarouselData, index: number }) => (
-        <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10, marginTop: _SectionName ? 0 : 14 }}>
+        <View testID={`list-item-${_TestID}`}
+            style={{
+                ...styles.container,
+                marginLeft: index === 0 ? 16 : 10,
+                marginTop: _SectionName ? 0 : 14
+            }}>
 
             {/* Main Banner */}
             <View style={{
@@ -18,7 +23,7 @@ const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
                 justifyContent: 'center',
             }}>
                 <Image source={item.tag}
-                    style={{...styles.tagStyle, width: _SectionName ? 95 : 129}} />
+                    style={{ ...styles.tagStyle, width: _SectionName ? 95 : 129 }} />
                 <Image source={item.imageUrl}
                     style={styles.image} />
             </View>
@@ -29,8 +34,9 @@ const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
 
                 {/* Banner Button */}
                 <TouchableOpacity
+                    testID={`button-${_TestID}`}
                     style={styles.buttonStyle}
-                    onPress={() => item.buttonAction()}>
+                    onPress={() => _OnPress && _OnPress(item)}>
                     <Text style={styles.buttonLabel}>{item.buttonLabel}</Text>
                 </TouchableOpacity>
             </View>
@@ -41,6 +47,7 @@ const VerticalGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
         <View>
             {_SectionName ? <Text style={styles.headerStyle}>{_SectionName}</Text> : null}
             <CustomCarousel
+                _TestID={_TestID}
                 _data={_GridData}
                 _renderItem={(renderItem)} />
         </View>

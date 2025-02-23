@@ -1,17 +1,26 @@
+import React from 'react';
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { fontFamily } from '@/utilities/utility';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Custom Tab Button for the Center Icon
 import { GestureResponderEvent } from 'react-native';
 
 const CustomTabButton = ({ children, onPress, accessibilityState }: { children: React.ReactNode, onPress?: (event: GestureResponderEvent) => void, accessibilityState?: { selected?: boolean } }) => (
-  <TouchableOpacity style={accessibilityState?.selected ? styles.activeButton : styles.customButton}
-    onPress={onPress} accessibilityState={accessibilityState} >
-    <View style={styles.customButtonInner}>{children}</View>
-  </TouchableOpacity >
+  <>
+
+
+    <TouchableOpacity style={accessibilityState?.selected ? { ...styles.customButton, top: -28 } : styles.customButton}
+      onPress={onPress} accessibilityState={accessibilityState} >
+      {
+        accessibilityState?.selected ?
+          <View style={styles.halfCircle} /> : null
+      }
+      <View style={styles.customButtonInner}>{children}</View>
+    </TouchableOpacity >
+  </>
 );
 
 const CustomButtonLabel = (Label: string) => {
@@ -60,13 +69,15 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          // tabBarIcon: ({ color, focused }) => (
-          //   <Ionicons name={'home-sharp'} color={color} size={24} />
-          // ),
+
           tabBarButton: (props) => {
             return (
               <CustomTabButton {...props}>
-                <Ionicons name={'home-sharp'} color={"#FFFFFF"} size={24} />
+                {/* <Ionicons name={'home-sharp'} color={"#FFFFFF"} size={24} /> */}
+                <Image source={require('../../assets/images/HomeBuddy/Home-tab.png')}
+                  style={props.accessibilityState?.selected ? styles.activeTabLogo : styles.inactiveTabLogo}
+                  resizeMode="contain"
+                />
                 {
                   props.accessibilityState?.selected ?
                     CustomButtonLabel('Home') : null
@@ -78,17 +89,18 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="About"
+        name="Activity"
         options={{
-          title: 'About',
+          title: 'Activity',
 
-          // tabBarIcon: ({ color, focused }) => (
-          //   <FontAwesome5 name={"th-list"} color={"#ffffff"} size={24} />
-          // ),
           tabBarButton: (props) => {
             return (
               <CustomTabButton {...props}>
-                <FontAwesome5 name={"th-list"} color={"#ffffff"} size={24} />
+                {/* <FontAwesome5 name={"th-list"} color={"#ffffff"} size={24} /> */}
+                <Image source={require('../../assets/images/HomeBuddy/activity-tab.png')}
+                  style={props.accessibilityState?.selected ? styles.activeTabLogo : styles.inactiveTabLogo}
+                  resizeMode="contain"
+                />
                 {
                   props.accessibilityState?.selected ?
                     CustomButtonLabel('About') : null
@@ -104,13 +116,15 @@ export default function TabLayout() {
         name="Settings"
         options={{
           title: 'Settings',
-          // tabBarIcon: ({ color, focused }) => (
-          //   <Ionicons name={'settings'} color={color} size={24} />
-          // ),
+
           tabBarButton: (props) => {
             return (
               <CustomTabButton {...props}>
-                <Ionicons name={'settings'} color={"#FFFFFF"} size={24} />
+                {/* <Ionicons name={'settings'} color={"#FFFFFF"} size={24} /> */}
+                <Image source={require('../../assets/images/HomeBuddy/setting-tab.png')}
+                  style={props.accessibilityState?.selected ? styles.activeTabLogo : styles.inactiveTabLogo}
+                  resizeMode="contain"
+                />
                 {
                   props.accessibilityState?.selected ?
                     CustomButtonLabel('Settings') : null
@@ -126,9 +140,7 @@ export default function TabLayout() {
         name="Profile"
         options={{
           title: 'Profile',
-          // tabBarIcon: ({ color, focused }) => (
-          //   <FontAwesome5 name={"user-circle"} color={"#ffffff"} size={24} />
-          // ),
+
           tabBarButton: (props) => {
             return (
               <CustomTabButton {...props}>
@@ -162,10 +174,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  halfCircle: {
+    width: 62,
+    height: 31, // Half of width
+    borderTopLeftRadius: 31, // Half of width
+    borderTopRightRadius: 31, // Half of width
+    bottom: -20,
+    zIndex: -1,
+    backgroundColor: '#9A15D8',
+  },
   customButtonInner: {
     width: 60,
     height: 60,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  activeTabLogo: {
+    width: 27,
+    height: 27
+  },
+  inactiveTabLogo: {
+    width: 24,
+    height: 24
+  }
 })

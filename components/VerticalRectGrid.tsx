@@ -6,22 +6,24 @@ import { fontFamily } from '@/utilities/utility';
 import { shadowStyle } from '@/utilities/utility';
 
 type Grid = ExploreData[]
-const VerticalRectGrid = (props: { _GridData: Grid, _SectionName?: string }) => {
-    const { _GridData, _SectionName } = props;
+const VerticalRectGrid = (props: { _GridData: Grid, _SectionName?: string, _TestID: string }) => {
+    const { _GridData, _SectionName, _TestID } = props;
 
     const renderItem = ({ item, index }: { item: ExploreData, index: number }) => (
-        <View style={{...styles.container, marginLeft: index === 0 ? 16 : 10}}>
+        <View testID={`list-item-${_TestID}`}
+            style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10 }}>
 
             <Image source={item.imageUrl}
                 style={styles.image} />
 
-            <Text style={styles.titleStyle}>{item.title}</Text>
+            <Text style={styles.titleStyle} numberOfLines={1}>{item.title}</Text>
         </View>
     );
     return (
         <View>
-            {_SectionName ? <Text style={styles.headerStyle}>{_SectionName}</Text> : null} 
+            {_SectionName ? <Text style={styles.headerStyle}>{_SectionName}</Text> : null}
             <CustomCarousel
+                _TestID={_TestID}
                 _data={_GridData}
                 _renderItem={renderItem} />
         </View>
@@ -38,13 +40,13 @@ const styles = StyleSheet.create({
     },
     container: {
         width: 148,
-        height: 112,
+        height: 114,
         backgroundColor: 'white',
         borderRadius: 12,
         marginBottom: 6,
         paddingHorizontal: 8,
         paddingTop: 8,
-       ...shadowStyle
+        ...shadowStyle
 
     },
     image: {
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'black',
         marginTop: 6,
-        marginLeft:6,
+        marginLeft: 6,
         fontFamily: fontFamily.PlaypenSansMedium,
     }
 });

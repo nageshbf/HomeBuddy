@@ -6,11 +6,12 @@ import { fontFamily } from '@/utilities/utility';
 import { shadowStyle } from '@/utilities/utility';
 
 type Grid = ClassMemoriesData[]
-const ClassMemories = (props: { _GridData: Grid, _SectionName?: string }) => {
-    const { _GridData, _SectionName } = props;
+const ClassMemories = (props: { _GridData: Grid, _SectionName?: string, _TestID: string, _OnPress: (item: ClassMemoriesData) => void }) => {
+    const { _GridData, _SectionName, _TestID, _OnPress } = props;
 
     const renderItem = ({ item, index }: { item: ClassMemoriesData, index: number }) => (
-        <View style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10 }}>
+        <View testID={`list-item-${_TestID}`}
+            style={{ ...styles.container, marginLeft: index === 0 ? 16 : 10 }}>
 
             <View style={styles.rowContainer}>
                 <Image source={item.imageUrl}
@@ -20,8 +21,9 @@ const ClassMemories = (props: { _GridData: Grid, _SectionName?: string }) => {
                     <Text style={styles.titleStyle}>{item.title}</Text>
 
                     <TouchableOpacity
+                        testID={`button-${_TestID}`}
                         style={styles.buttonStyle}
-                        onPress={() => item.buttonAction()}>
+                        onPress={() => _OnPress && _OnPress(item)}>
                         <Text style={styles.buttonLabel}>{item.buttonLabel}</Text>
                         <Image source={require('../assets/images/HomeBuddy/right-arrow.png')}
                             style={{ width: 10, height: 10, marginLeft: 5 }} />
@@ -32,8 +34,9 @@ const ClassMemories = (props: { _GridData: Grid, _SectionName?: string }) => {
     );
     return (
         <View>
-            <Text style={styles.headerStyle}>Class Memories</Text>
+            <Text style={styles.headerStyle}>{_SectionName}</Text>
             <CustomCarousel
+                _TestID={_TestID}
                 _data={_GridData}
                 _renderItem={renderItem} />
         </View>

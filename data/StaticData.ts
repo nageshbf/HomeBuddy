@@ -5,7 +5,6 @@ export interface MainCarouselData {
     tag: any;
     title: string;
     buttonLabel: string;
-    buttonAction: () => void;
 }
 
 export interface ClassMemoriesData {
@@ -13,7 +12,6 @@ export interface ClassMemoriesData {
     imageUrl: any;
     title: string;
     buttonLabel: string;
-    buttonAction: () => void;
 }
 
 export interface ExploreData {
@@ -55,65 +53,56 @@ export const classMemories: ClassMemoriesData[] = [
     {
         id: 1,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-1.png'),
-        title: 'Water way of Transport',
-        buttonLabel: 'Watch Video',
-        buttonAction: () => alert('Watch Video Clicked')
+        title: 'Water way\nof Transport',
+        buttonLabel: 'Watch Video'
     },
     {
         id: 2,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-2.png'),
         title: 'Father’s Day Celebration',
-        buttonLabel: 'See post',
-        buttonAction: () => alert('See Post Clicked')
+        buttonLabel: 'See post'
     },
     {
         id: 3,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-1.png'),
-        title: 'Water way of Transport',
-        buttonLabel: 'Watch Video',
-        buttonAction: () => alert('Watch Video Clicked')
+        title: 'Water way\nof Transport',
+        buttonLabel: 'Watch Video'
     },
     {
         id: 4,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-2.png'),
         title: 'Father’s Day Celebration',
-        buttonLabel: 'See post',
-        buttonAction: () => alert('See Post Clicked')
+        buttonLabel: 'See post'
     },
     {
         id: 5,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-1.png'),
-        title: 'Water way of Transport',
-        buttonLabel: 'Watch Video',
-        buttonAction: () => alert('Watch Video Clicked')
+        title: 'Water way\nof Transport',
+        buttonLabel: 'Watch Video'
     },
     {
         id: 6,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-2.png'),
         title: 'Father’s Day Celebration',
-        buttonLabel: 'See post',
-        buttonAction: () => alert('See Post Clicked')
+        buttonLabel: 'See post'
     },
     {
         id: 7,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-1.png'),
-        title: 'Water way of Transport',
-        buttonLabel: 'Watch Video',
-        buttonAction: () => alert('Watch Video Clicked')
+        title: 'Water way\nof Transport',
+        buttonLabel: 'Watch Video'
     },
     {
         id: 8,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-2.png'),
         title: 'Father’s Day Celebration',
-        buttonLabel: 'See post',
-        buttonAction: () => alert('See Post Clicked')
+        buttonLabel: 'See post'
     },
     {
         id: 9,
         imageUrl: require('../assets/images/HomeBuddy/class-memories-1.png'),
-        title: 'Water way of Transport',
-        buttonLabel: 'Watch Video',
-        buttonAction: () => alert('Watch Video Clicked')
+        title: 'Water way\nof Transport',
+        buttonLabel: 'Watch Video'
     }
 ];
 
@@ -123,40 +112,35 @@ export const data: MainCarouselData[] = [
         imageUrl: require('../assets/images/HomeBuddy/main-corousel-banner.png'),
         title: 'The Teacher and Barber',
         tag: require('../assets/images/HomeBuddy/scientific-thinking.png'),
-        buttonLabel: 'PLAY',
-        buttonAction: () => alert('Play Button Clicked')
+        buttonLabel: 'PLAY'
     },
     {
         id: 2,
         imageUrl: require('../assets/images/HomeBuddy/main-corousel-banner.png'),
         title: 'The Teacher and Barber',
         tag: require('../assets/images/HomeBuddy/scientific-thinking.png'),
-        buttonLabel: 'PLAY',
-        buttonAction: () => alert('Play Button Clicked')
+        buttonLabel: 'PLAY'
     },
     {
         id: 3,
         imageUrl: require('../assets/images/HomeBuddy/main-corousel-banner.png'),
         title: 'The Teacher and Barber',
         tag: require('../assets/images/HomeBuddy/scientific-thinking.png'),
-        buttonLabel: 'PLAY',
-        buttonAction: () => alert('Play Button Clicked')
+        buttonLabel: 'PLAY'
     },
     {
         id: 4,
         imageUrl: require('../assets/images/HomeBuddy/main-corousel-banner.png'),
         title: 'The Teacher and Barber',
         tag: require('../assets/images/HomeBuddy/scientific-thinking.png'),
-        buttonLabel: 'PLAY',
-        buttonAction: () => alert('Play Button Clicked')
+        buttonLabel: 'PLAY'
     },
     {
         id: 5,
         imageUrl: require('../assets/images/HomeBuddy/main-corousel-banner.png'),
         title: 'The Teacher and Barber',
         tag: require('../assets/images/HomeBuddy/scientific-thinking.png'),
-        buttonLabel: 'PLAY',
-        buttonAction: () => alert('Play Button Clicked')
+        buttonLabel: 'PLAY'
     }
 ];
 
@@ -167,39 +151,34 @@ export const contentData: MainCarouselData[] = [
         imageUrl: require('../assets/images/HomeBuddy/content-banner.png'),
         title: 'Mathematics',
         tag: require('../assets/images/HomeBuddy/math-tag.png'),
-        buttonLabel: 'SEE',
-        buttonAction: () => alert('SEE Button Clicked')
+        buttonLabel: 'SEE'
     },
     {
         id: 2,
         imageUrl: require('../assets/images/HomeBuddy/content-banner.png'),
         title: 'Mathematics',
         tag: require('../assets/images/HomeBuddy/math-tag.png'),
-        buttonLabel: 'SEE',
-        buttonAction: () => alert('SEE Button Clicked')
+        buttonLabel: 'SEE'
     },
     {
         id: 3,
         imageUrl: require('../assets/images/HomeBuddy/content-banner.png'),
         title: 'Mathematics',
         tag: require('../assets/images/HomeBuddy/math-tag.png'),
-        buttonLabel: 'SEE',
-        buttonAction: () => alert('SEE Button Clicked')
+        buttonLabel: 'SEE'
     },
     {
         id: 4,
         imageUrl: require('../assets/images/HomeBuddy/content-banner.png'),
         title: 'Mathematics',
         tag: require('../assets/images/HomeBuddy/math-tag.png'),
-        buttonLabel: 'SEE',
-        buttonAction: () => alert('SEE Button Clicked')
+        buttonLabel: 'SEE'
     },
     {
         id: 5,
         imageUrl: require('../assets/images/HomeBuddy/content-banner.png'),
         title: 'Mathematics',
         tag: require('../assets/images/HomeBuddy/math-tag.png'),
-        buttonLabel: 'SEE',
-        buttonAction: () => alert('SEE Button Clicked')
+        buttonLabel: 'SEE'
     }
 ];
